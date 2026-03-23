@@ -1,0 +1,106 @@
+# 4-bit Adder Design & Simulation (Verilog)
+
+## 📌 Project Overview
+
+This project implements a **4-bit combinational adder** using Verilog HDL and verifies its functionality through simulation in ModelSim.
+
+It serves as a fundamental "Hello World" project for digital IC design, covering the complete workflow from RTL design to simulation and waveform analysis.
+
+---
+
+## 🧠 Design Description
+
+The adder takes two 4-bit inputs (`a`, `b`) and produces a 5-bit output (`sum`) to account for carry-out.
+
+* Type: Combinational Logic
+* Implementation: Continuous assignment (`assign`)
+* Overflow handled via output width extension
+
+---
+
+## 📂 Project Structure
+
+```
+01_adder/
+├── adder.v          # RTL design of 4-bit adder
+├── adder_tb.v       # Testbench for simulation
+├── waveform.png     # Simulation waveform result
+└── README.md        # Project documentation
+```
+
+---
+
+## 🔧 Tools Used
+
+* Verilog HDL
+* ModelSim (simulation)
+* Git & GitHub (version control)
+
+---
+
+## ▶️ How to Run Simulation
+
+### Step 1: Compile
+
+```tcl
+vlog adder.v
+vlog adder_tb.v
+```
+
+### Step 2: Simulate (disable optimization for waveform visibility)
+
+```tcl
+vsim -novopt adder_tb
+```
+
+### Step 3: Add waveform and run
+
+```tcl
+add wave -r /*
+run 50ns
+```
+
+---
+
+## 📊 Simulation Result
+
+The waveform verifies correct addition behavior:
+
+| a  | b | sum |
+| -- | - | --- |
+| 0  | 0 | 0   |
+| 3  | 5 | 8   |
+| 7  | 8 | 15  |
+| 15 | 1 | 16  |
+
+*(See waveform.png for detailed signal transitions)*
+
+---
+
+## 💡 Key Learnings
+
+* Understood basic Verilog syntax and combinational logic design
+* Learned how to write a testbench for functional verification
+* Gained experience using ModelSim for simulation and debugging
+* Identified and resolved common issues:
+
+  * File path and working directory errors
+  * Simulation hierarchy and signal visibility
+  * Optimization effects (`-novopt`) on waveform display
+
+---
+
+## 🚀 Future Improvements
+
+* Implement 1-bit Full Adder and extend to N-bit structure
+* Add carry-in / carry-out logic explicitly
+* Build an 8-bit ALU based on modular design
+* Introduce parameterized design for scalability
+
+---
+
+## 📎 Notes
+
+This project is part of a personal learning journey in **Digital IC Design**, aiming to build a solid foundation in RTL design and verification.
+
+---
