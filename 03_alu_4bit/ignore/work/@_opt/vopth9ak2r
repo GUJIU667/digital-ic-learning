@@ -1,0 +1,48 @@
+m255
+K3
+13
+cModel Technology
+dD:\modeltech64_10.1c\examples
+T_opt
+V@VXS8c^gbG>62ZoFh5RSh3
+04 11 4 work tb_alu_4bit fast 0
+=1-50ebf6e5e161-69c27678-65-10b50
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.1c;51
+valu_4bit
+!s100 >iY`b^n3<<n2?Yj_;RDgE3
+IAl;:JZDMP8V@XfENTKISe0
+VBVEKR=gEZUj1mRjdR;>4k0
+Z0 dD:\verilog_project\03_alu_4bit
+w1774351761
+8D:\verilog_project\03_alu_4bit\alu_4bit.v
+FD:\verilog_project\03_alu_4bit\alu_4bit.v
+L0 1
+Z1 OL;L;10.1c;51
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\03_alu_4bit\alu_4bit.v|
+Z2 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s108 1774351962.010000
+!s107 D:\verilog_project\03_alu_4bit\alu_4bit.v|
+!i10b 1
+!s85 0
+vtb_alu_4bit
+!s100 Q81O?m@DR?ilNbciHeTR02
+I`h>]K??lOC8T1RBdFQXBD0
+V;kSFozDLQ0RBJDmmWb3i82
+Z3 dD:\verilog_project\03_alu_4bit
+w1774351904
+8D:\verilog_project\03_alu_4bit\tb_alu_4bit.v
+FD:\verilog_project\03_alu_4bit\tb_alu_4bit.v
+L0 3
+R1
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\03_alu_4bit\tb_alu_4bit.v|
+R2
+!i10b 1
+!s85 0
+!s108 1774351962.050000
+!s107 D:\verilog_project\03_alu_4bit\tb_alu_4bit.v|

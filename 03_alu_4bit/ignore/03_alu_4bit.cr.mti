@@ -1,0 +1,15 @@
+D:/verilog_project/03_alu_4bit/tb_alu_4bit.v {1 {vlog -work work -vopt {D:\verilog_project\03_alu_4bit\tb_alu_4bit.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module tb_alu_4bit
+
+Top level modules:
+	tb_alu_4bit
+
+} {} {}} D:/verilog_project/03_alu_4bit/alu_4bit.v {1 {vlog -work work -vopt {D:\verilog_project\03_alu_4bit\alu_4bit.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module alu_4bit
+
+Top level modules:
+	alu_4bit
+
+} {} {}}
