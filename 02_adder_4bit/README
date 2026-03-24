@@ -1,0 +1,154 @@
+# 4-bit Ripple Carry Adder (Verilog)
+
+## 📌 Project Overview
+
+This project implements a **4-bit ripple carry adder** in Verilog HDL, along with a self-checking testbench for functional verification.
+
+The design demonstrates fundamental digital logic concepts including:
+
+* Combinational logic design
+* Hierarchical module construction
+* Carry propagation mechanism
+* Hardware-oriented verification methodology
+
+---
+
+## 🧠 Design Architecture
+
+The 4-bit adder is built by cascading four 1-bit full adders:
+
+```
+a[0], b[0], cin  → FA0 → c1
+a[1], b[1], c1   → FA1 → c2
+a[2], b[2], c2   → FA2 → c3
+a[3], b[3], c3   → FA3 → cout
+```
+
+* Each stage propagates carry to the next stage
+* Final output is a 5-bit result:
+  **{cout, sum[3:0]}**
+
+---
+
+## 🧩 Module Description
+
+### 1️⃣ Full Adder (`full_adder.v`)
+
+Implements 1-bit addition:
+
+* **Sum**
+
+  ```
+  sum = a ^ b ^ cin
+  ```
+
+* **Carry-out**
+
+  ```
+  cout = (a & b) | (cin & (a ^ b))
+  ```
+
+---
+
+### 2️⃣ 4-bit Adder (`adder_4bit.v`)
+
+* Composed of four full adders
+* Uses ripple carry structure
+* Outputs:
+
+  * `sum[3:0]`
+  * `cout`
+
+---
+
+## 🧪 Testbench (`tb_adder_4bit.v`)
+
+A **self-checking testbench** is implemented with:
+
+### ✅ Features
+
+* Directed test cases (edge cases)
+* Randomized testing
+* Automatic result checking
+* Error reporting
+
+### 🔍 Verification Strategy
+
+The output is combined into a 5-bit result:
+
+```
+result = {cout, sum}
+```
+
+And compared against:
+
+```
+expected = a + b + cin
+```
+
+---
+
+## ▶️ Simulation
+
+### Compile
+
+```bash
+vlog full_adder.v
+vlog adder_4bit.v
+vlog tb_adder_4bit.v
+```
+
+### Run
+
+```bash
+vsim tb_adder_4bit
+add wave *
+run -all
+```
+
+---
+
+## 📊 Example Output
+
+```
+ a   b cin | result(bin) result(dec) | expect | status
+------------------------------------------------------
+15 15  0   | 11110 30 | 30 | OK
+15 15  1   | 11111 31 | 31 | OK
+```
+
+---
+
+## ⚠️ Common Pitfalls
+
+* Misinterpreting `{cout, sum}` as separate values
+* Forgetting carry propagation
+* Missing simulation delays (`#10`)
+* Not using self-checking verification
+
+---
+
+## 🚀 Possible Extensions
+
+* Parameterized N-bit adder
+* Carry Lookahead Adder (CLA)
+* Overflow detection
+* ALU design (add/sub/logic ops)
+
+---
+
+## 📚 Key Takeaways
+
+* Hardware results must be explicitly defined in bit-width
+* Verification is as important as design
+* Debugging is a core engineering skill
+
+---
+
+## 👨‍💻 Author
+
+* Undergraduate in Electronic Science & Technology
+* Focus: Digital IC Design / Verification
+* Exploring advanced topics such as ALU and architecture design
+
+---
