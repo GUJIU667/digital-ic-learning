@@ -1,0 +1,159 @@
+# 4-bit ALU (Arithmetic Logic Unit) in Verilog
+
+## 📌 Project Overview
+
+This project implements a **4-bit Arithmetic Logic Unit (ALU)** using Verilog HDL, capable of performing multiple arithmetic and logical operations based on a control signal.
+
+The design demonstrates:
+
+* Combinational logic design
+* Multi-operation control using opcode
+* Bit-width handling and carry propagation
+* Self-checking verification methodology
+
+---
+
+## 🧠 Supported Operations
+
+| Opcode (`op`) | Operation | Description |
+| ------------- | --------- | ----------- |
+| 000           | ADD       | `a + b`     |
+| 001           | SUB       | `a - b`     |
+| 010           | AND       | `a & b`     |
+| 011           | OR        | `a \| b`    |
+| 100           | XOR       | `a ^ b`     |
+
+---
+
+## 🧩 Module Interface
+
+```verilog
+module alu_4bit (
+    input  [3:0] a,
+    input  [3:0] b,
+    input  [2:0] op,
+    output reg [3:0] result,
+    output reg       cout
+);
+```
+
+* `a`, `b`: 4-bit operands
+* `op`: operation selector
+* `result`: 4-bit output
+* `cout`: carry-out (valid for arithmetic ops)
+
+---
+
+## ⚙️ Design Details
+
+### 🔹 Arithmetic Operations
+
+* Addition:
+
+  ```
+  {cout, result} = a + b
+  ```
+* Subtraction:
+
+  ```
+  {cout, result} = a - b
+  ```
+
+  Internally based on **two’s complement representation**.
+
+---
+
+### 🔹 Logical Operations
+
+* AND / OR / XOR are implemented using bitwise operators
+* `cout` is set to `0` for logical operations
+
+---
+
+## 🧪 Testbench
+
+A **self-checking testbench** is implemented with:
+
+### ✅ Features
+
+* Directed test cases
+* Randomized input testing
+* Automatic result comparison
+* Error reporting (PASS / FAIL)
+
+### 🔍 Verification Strategy
+
+All outputs are combined into a 5-bit value:
+
+```verilog
+full_result = {cout, result}
+```
+
+Expected result is computed as:
+
+```verilog
+expected = a op b
+```
+
+And compared automatically.
+
+---
+
+## ▶️ Simulation
+
+### Compile
+
+```bash
+vlog alu_4bit.v
+vlog tb_alu_4bit.v
+```
+
+### Run
+
+```bash
+vsim tb_alu_4bit
+add wave *
+run -all
+```
+
+---
+
+## 📊 Example Output
+
+```
+ a   b  op | result | expect | status
+--------------------------------------
+ 5   3 000 | 01000 | 01000 | OK
+ 5   3 001 | 00010 | 00010 | OK
+```
+
+---
+
+## ⚠️ Key Learnings
+
+* Hardware requires explicit bit-width handling (`{cout, result}`)
+* Arithmetic and logical operations must be treated differently
+* Verification is critical for correctness
+* Debugging often involves interpreting results correctly, not just fixing logic
+
+---
+
+## 🚀 Possible Extensions
+
+* Add status flags:
+
+  * Zero flag
+  * Overflow flag
+* Parameterized bit-width (N-bit ALU)
+* Integration into a simple CPU datapath
+* Pipeline support
+
+---
+
+## 👨‍💻 Author
+
+* Electronic Science & Technology undergraduate
+* Focus: Digital IC Design / Computer Architecture
+* Currently exploring ALU design and hardware verification
+
+---
