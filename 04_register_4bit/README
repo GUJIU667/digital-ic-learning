@@ -1,0 +1,132 @@
+# 4-bit Register (Sequential Logic) in Verilog
+
+## 📌 Project Overview
+
+This project implements a **4-bit register** using Verilog HDL, introducing fundamental concepts of **sequential logic design**.
+
+Unlike combinational circuits (e.g., adders, ALU), this design demonstrates how hardware can **store state and update synchronously with a clock signal**.
+
+---
+
+## 🧠 Key Concepts
+
+* Sequential Logic vs Combinational Logic
+* Clock-driven state updates (`posedge clk`)
+* Non-blocking assignment (`<=`)
+* Enable control (`en`)
+* Reset mechanism (`rst`)
+
+---
+
+## 🧩 Module Interface
+
+```verilog id="8mmr4c"
+module register_4bit (
+    input        clk,
+    input        rst,
+    input        en,
+    input  [3:0] d,
+    output reg [3:0] q
+);
+```
+
+### Signal Description
+
+| Signal | Type   | Description                              |
+| ------ | ------ | ---------------------------------------- |
+| `clk`  | Input  | Clock signal (rising edge triggered)     |
+| `rst`  | Input  | Reset signal (active high)               |
+| `en`   | Input  | Enable signal (controls write operation) |
+| `d`    | Input  | 4-bit input data                         |
+| `q`    | Output | Stored 4-bit value                       |
+
+---
+
+## ⚙️ Design Behavior
+
+```verilog id="f7dpvr"
+always @(posedge clk) begin
+    if (rst)
+        q <= 0;
+    else if (en)
+        q <= d;
+end
+```
+
+### Behavior Summary
+
+* On **reset (`rst = 1`)** → register is cleared (`q = 0`)
+* On **clock rising edge**:
+
+  * If `en = 1` → load new data (`q ← d`)
+  * If `en = 0` → hold previous value
+
+---
+
+## 🧪 Testbench
+
+### Features
+
+* Clock generation using `forever` loop
+* Reset and enable control testing
+* Sequential input stimulus
+* Waveform-based verification
+
+### Clock Generation
+
+```verilog id="5x06za"
+initial begin
+    clk = 0;
+    forever #5 clk = ~clk;  // 10ns period
+end
+```
+
+---
+
+## 📊 Expected Behavior
+
+| Time | rst | en | d | q (after clk edge) |
+| ---- | --- | -- | - | ------------------ |
+| t0   | 1   | 0  | x | 0                  |
+| t1   | 0   | 1  | 5 | 5                  |
+| t2   | 0   | 1  | 9 | 9                  |
+| t3   | 0   | 0  | 3 | 9 (hold)           |
+| t4   | 0   | 1  | 7 | 7                  |
+
+---
+
+## ⚠️ Key Learnings
+
+* Sequential circuits require a **clock signal** to update state
+* `<=` (non-blocking assignment) is essential for correct timing behavior
+* State is preserved between clock cycles
+* Enable signals control when data is written
+
+---
+
+## 🔄 Comparison with Combinational Logic
+
+| Feature | Combinational | Sequential |
+| ------- | ------------- | ---------- |
+| Clock   | ❌ No          | ✅ Yes      |
+| Memory  | ❌ No          | ✅ Yes      |
+| Example | Adder / ALU   | Register   |
+
+---
+
+## 🚀 Possible Extensions
+
+* Parameterized register (N-bit)
+* Asynchronous reset
+* Register with load/clear control
+* Integration into register file
+
+---
+
+## 👨‍💻 Author
+
+* Electronic Science & Technology undergraduate
+* Focus: Digital IC Design / Computer Architecture
+* Currently exploring sequential logic and system-level design
+
+---
