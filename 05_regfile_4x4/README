@@ -1,0 +1,159 @@
+# 4×4 Register File in Verilog
+
+## 📌 Project Overview
+
+This project implements a **4×4 Register File** in Verilog HDL, consisting of **four 4-bit registers** with addressable read and write functionality.
+
+The design demonstrates a fundamental building block of modern processors, enabling **data storage, addressing, and controlled access**.
+
+---
+
+## 🧠 Key Concepts
+
+* Sequential logic (clock-driven write)
+* Combinational logic (asynchronous read)
+* Register array (memory structure)
+* Address-based data access
+* Separation of read/write paths
+
+---
+
+## 🧩 Module Interface
+
+```verilog id="0nh7fz"
+module regfile_4x4 (
+    input clk,
+    input we,
+    input [1:0] waddr,
+    input [3:0] wdata,
+    input [1:0] raddr,
+    output [3:0] rdata
+);
+```
+
+### Signal Description
+
+| Signal  | Type   | Description                                   |
+| ------- | ------ | --------------------------------------------- |
+| `clk`   | Input  | Clock signal (write triggered on rising edge) |
+| `we`    | Input  | Write enable                                  |
+| `waddr` | Input  | Write address (selects target register)       |
+| `wdata` | Input  | Data to be written                            |
+| `raddr` | Input  | Read address                                  |
+| `rdata` | Output | Data read from selected register              |
+
+---
+
+## ⚙️ Design Architecture
+
+### 🔹 Register Array
+
+```verilog id="4l2t3z"
+reg [3:0] reg_array [3:0];
+```
+
+* 4 registers
+* Each register is 4-bit wide
+* Total storage: 16 bits
+
+---
+
+### 🔹 Write Operation (Sequential Logic)
+
+```verilog id="9ybwbn"
+always @(posedge clk) begin
+    if (we)
+        reg_array[waddr] <= wdata;
+end
+```
+
+* Occurs only on clock rising edge
+* Controlled by `we`
+* Uses **non-blocking assignment (`<=`)**
+
+---
+
+### 🔹 Read Operation (Combinational Logic)
+
+```verilog id="l5r3bp"
+assign rdata = reg_array[raddr];
+```
+
+* Immediate response to address change
+* No clock required
+* Continuous assignment
+
+---
+
+## 🧪 Testbench
+
+### Features
+
+* Clock generation (`forever #5`)
+* Sequential write operations
+* Address-based read verification
+* Waveform observation
+
+### Test Flow
+
+1. Enable write (`we = 1`)
+2. Write values into all registers
+3. Disable write (`we = 0`)
+4. Read each register using `raddr`
+
+---
+
+## 📊 Example Behavior
+
+| Address | Stored Value |
+| ------- | ------------ |
+| 0       | 5            |
+| 1       | 9            |
+| 2       | 3            |
+| 3       | 7            |
+
+Reading:
+
+```text id="wpl5vg"
+raddr = 2 → rdata = 3
+```
+
+---
+
+## ⚠️ Key Learnings
+
+* Writing requires **clock synchronization**
+* Reading can be **asynchronous**
+* Memory structures are built using register arrays
+* Addressing enables scalable storage design
+* Separation of read/write paths improves clarity
+
+---
+
+## 🔄 Comparison
+
+| Feature    | Register     | Register File   |
+| ---------- | ------------ | --------------- |
+| Storage    | Single value | Multiple values |
+| Access     | Direct       | Address-based   |
+| Complexity | Low          | Medium          |
+
+---
+
+## 🚀 Possible Extensions
+
+* Dual read ports (2 reads + 1 write)
+* Parameterized design (N×M register file)
+* Reset initialization
+* Integration with ALU (CPU datapath)
+* Synchronous read version
+
+---
+
+## 👨‍💻 Author
+
+* Electronic Science & Technology undergraduate
+* Focus: Digital IC Design / Computer Architecture
+* Currently building core CPU components (ALU, Register File, etc.)
+
+---
