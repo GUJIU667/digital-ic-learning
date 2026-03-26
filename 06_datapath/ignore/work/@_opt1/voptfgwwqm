@@ -1,0 +1,100 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\modeltech64_10.1c\examples
+T_opt
+VM_8miz9fkQZDV??jo0W173
+Z1 04 11 4 work tb_datapath fast 0
+=1-50ebf6e5e161-69c554c6-3dd-91b4
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+Z2 OL;O;10.1c;51
+Z3 dD:\modeltech64_10.1c\examples
+T_opt1
+VOULL`mcSYlOcnk3a=U;WR0
+04 11 4 work regfile_4x4 fast 0
+=1-50ebf6e5e161-69c55696-130-9e08
+Z4 o-quiet -auto_acc_if_foreign -work work
+n@_opt1
+R2
+T_opt2
+V80cTe_kAT^kkK?V@<GXng1
+R1
+=1-50ebf6e5e161-69c551e2-2c4-9568
+R4
+n@_opt2
+R2
+R3
+valu_4bit
+IP:5USo8o6[U_2le;mhPJl2
+VBVEKR=gEZUj1mRjdR;>4k0
+Z5 dD:\verilog_project\06_datapath
+w1774536380
+8D:\verilog_project\06_datapath\alu.v
+FD:\verilog_project\06_datapath\alu.v
+L0 1
+Z6 OL;L;10.1c;51
+r1
+31
+Z7 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 zh6=[i<TZKP6idm6odzDg2
+!s108 1774539965.469000
+!s107 D:\verilog_project\06_datapath\alu.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\06_datapath\alu.v|
+!i10b 1
+!s85 0
+vdatapath
+IP@;gHB6<OIbmI_lN[g<Sm3
+VkBoi?4JAkofXAi:aQ`Ta61
+R5
+w1774538225
+8D:\verilog_project\06_datapath\datapath.v
+FD:\verilog_project\06_datapath\datapath.v
+L0 1
+R6
+r1
+31
+R7
+!s100 k1]n@HEPHVG5l3oS:`JDc0
+!s108 1774539965.380000
+!s107 D:\verilog_project\06_datapath\datapath.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\06_datapath\datapath.v|
+!i10b 1
+!s85 0
+vregfile_4x4
+IAM=8TBoW:LCZA0YN[c_jD2
+VO_zXkzi2l@=O?PkA[JiRK2
+R5
+w1774539849
+8D:\verilog_project\06_datapath\regfile.v
+FD:\verilog_project\06_datapath\regfile.v
+L0 1
+R6
+r1
+31
+R7
+!s100 d6;h;zlHU<TQ[I1ZAen]_1
+!s108 1774539965.423000
+!s107 D:\verilog_project\06_datapath\regfile.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\06_datapath\regfile.v|
+!i10b 1
+!s85 0
+vtb_datapath
+I?zd;<7W>:BOOVc;9AFa^`1
+Vh<[XYB6fl`cz@cc[EhMEa0
+R5
+w1774539958
+8D:\verilog_project\06_datapath\tb_datapath.v
+FD:\verilog_project\06_datapath\tb_datapath.v
+L0 3
+R6
+r1
+31
+R7
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\06_datapath\tb_datapath.v|
+!i10b 1
+!s100 4oXS98ifW;K6[??EQziOa1
+!s85 0
+!s108 1774539965.506000
+!s107 D:\verilog_project\06_datapath\tb_datapath.v|

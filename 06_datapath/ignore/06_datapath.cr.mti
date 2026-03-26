@@ -1,0 +1,29 @@
+D:/verilog_project/06_datapath/datapath.v {1 {vlog -work work -vopt {D:\verilog_project\06_datapath\datapath.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+
+} {} {}} D:/verilog_project/06_datapath/tb_datapath.v {1 {vlog -work work -vopt {D:\verilog_project\06_datapath\tb_datapath.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module tb_datapath
+
+Top level modules:
+	tb_datapath
+
+} {} {}} D:/verilog_project/06_datapath/alu.v {1 {vlog -work work -vopt {D:\verilog_project\06_datapath\alu.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module alu_4bit
+
+Top level modules:
+	alu_4bit
+
+} {} {}} D:/verilog_project/06_datapath/regfile.v {1 {vlog -work work -vopt {D:\verilog_project\06_datapath\regfile.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module regfile_4x4
+
+Top level modules:
+	regfile_4x4
+
+} {} {}}

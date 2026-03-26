@@ -1,0 +1,100 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\modeltech64_10.1c\examples
+T_opt
+VGXcIBcndZIR[mWSZTCO_o3
+Z1 04 11 4 work tb_datapath fast 0
+=1-50ebf6e5e161-69c55a07-11d-a670
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+Z2 OL;O;10.1c;51
+Z3 dD:\modeltech64_10.1c\examples
+T_opt1
+VOULL`mcSYlOcnk3a=U;WR0
+04 11 4 work regfile_4x4 fast 0
+=1-50ebf6e5e161-69c55696-130-9e08
+Z4 o-quiet -auto_acc_if_foreign -work work
+n@_opt1
+R2
+R3
+T_opt2
+VlXGm1BY6OEbV0ZjaE1miO0
+R1
+=1-50ebf6e5e161-69c55c6f-3ba-83a8
+R4
+n@_opt2
+R2
+valu_4bit
+I=VBBf538Fe=MEkMgUAB=b2
+VBVEKR=gEZUj1mRjdR;>4k0
+Z5 dD:\verilog_project\06_datapath
+w1774540893
+8D:\verilog_project\06_datapath\alu.v
+FD:\verilog_project\06_datapath\alu.v
+L0 1
+Z6 OL;L;10.1c;51
+r1
+31
+Z7 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 UckHa>CSSP_ac]zYC4o?Y2
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\06_datapath\alu.v|
+!s108 1774541309.006000
+!s107 D:\verilog_project\06_datapath\alu.v|
+!i10b 1
+!s85 0
+vdatapath
+IVJf5RbFAl`30nac_NYSmT2
+VkBoi?4JAkofXAi:aQ`Ta61
+R5
+w1774540930
+8D:\verilog_project\06_datapath\datapath.v
+FD:\verilog_project\06_datapath\datapath.v
+L0 1
+R6
+r1
+31
+R7
+!s100 T=_aO?0kEhIB]UKVa6N5o0
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\06_datapath\datapath.v|
+!s108 1774541308.928000
+!s107 D:\verilog_project\06_datapath\datapath.v|
+!i10b 1
+!s85 0
+vregfile_4x4
+IIM^OiWSg?QB9^K?PiTjaK1
+V2ca8<0`jFo`CVAKR8N_Ql1
+R5
+w1774540871
+8D:\verilog_project\06_datapath\regfile.v
+FD:\verilog_project\06_datapath\regfile.v
+L0 1
+R6
+r1
+31
+R7
+!s100 1@3BGhnNUd6[Wh@l0cNgD3
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\06_datapath\regfile.v|
+!s108 1774541308.969000
+!s107 D:\verilog_project\06_datapath\regfile.v|
+!i10b 1
+!s85 0
+vtb_datapath
+Ikk_75aRK`aMbSen?XH=lQ2
+Vh<[XYB6fl`cz@cc[EhMEa0
+R5
+w1774541298
+8D:\verilog_project\06_datapath\tb_datapath.v
+FD:\verilog_project\06_datapath\tb_datapath.v
+L0 1
+R6
+r1
+31
+R7
+!s100 P[4]CIOUZgCA2o51g;Hei1
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\06_datapath\tb_datapath.v|
+!i10b 1
+!s85 0
+!s108 1774541309.042000
+!s107 D:\verilog_project\06_datapath\tb_datapath.v|
