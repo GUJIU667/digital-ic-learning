@@ -1,0 +1,57 @@
+D:/verilog_project/08_control_unit_plus/control.v {1 {vlog -work work -vopt {D:\verilog_project\08_control_unit_plus\control.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module control
+
+Top level modules:
+	control
+
+} {} {}} D:/verilog_project/08_control_unit_plus/tb.v {1 {vlog -work work -vopt {D:\verilog_project\08_control_unit_plus\tb.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module tb
+
+Top level modules:
+	tb
+
+} {} {}} D:/verilog_project/08_control_unit_plus/regfile.v {1 {vlog -work work -vopt {D:\verilog_project\08_control_unit_plus\regfile.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module regfile_4x4
+
+Top level modules:
+	regfile_4x4
+
+} {} {}} D:/verilog_project/08_control_unit_plus/alu.v {1 {vlog -work work -vopt {D:\verilog_project\08_control_unit_plus\alu.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module alu_4bit
+
+Top level modules:
+	alu_4bit
+
+} {} {}} D:/verilog_project/08_control_unit_plus/instruction_memory.v {1 {vlog -work work -vopt {D:\verilog_project\08_control_unit_plus\instruction_memory.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module imem
+
+Top level modules:
+	imem
+
+} {} {}} D:/verilog_project/08_control_unit_plus/datapath.v {1 {vlog -work work -vopt {D:\verilog_project\08_control_unit_plus\datapath.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+
+} {} {}} D:/verilog_project/08_control_unit_plus/program_counter.v {1 {vlog -work work -vopt {D:\verilog_project\08_control_unit_plus\program_counter.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module pc
+
+Top level modules:
+	pc
+
+} {} {}} D:/verilog_project/08_control_unit_plus/cpu.v {1 {vlog -work work -vopt {D:\verilog_project\08_control_unit_plus\cpu.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module cpu_debug
+
+Top level modules:
+	cpu_debug
+
+} {} {}}
