@@ -1,0 +1,203 @@
+# 🧠 4-bit Mini CPU with HALT (Control Flow Enabled)
+
+## 📌 Project Overview
+
+This project extends a simple 4-bit CPU by introducing **basic control flow**, specifically the **HALT instruction**.
+
+The CPU now supports:
+
+* Automatic instruction execution (via PC + instruction memory)
+* Arithmetic/logic operations (ADD, XOR)
+* **Program termination (HALT)**
+
+This marks a transition from a simple datapath system to a **control-aware CPU architecture**.
+
+---
+
+## 🏗️ Architecture
+
+```text
+PC → Instruction Memory → Control Unit → Datapath → Register File
+```
+
+### 🔧 Components
+
+* **PC (Program Counter)**
+  Controls instruction sequencing. Can now **pause when HALT is triggered**.
+
+* **Instruction Memory**
+  Stores program instructions.
+
+* **Control Unit**
+
+  * Decodes opcode
+  * Generates:
+
+    * `we` (write enable)
+    * `op` (ALU operation)
+    * `halt` (new control signal)
+
+* **Datapath**
+
+  * Register File (4×4-bit)
+  * ALU (combinational logic)
+
+---
+
+## 🧾 Instruction Format
+
+```text
+[7:6] opcode
+[5:4] rs1
+[3:2] rs2
+[1:0] rd
+```
+
+---
+
+## ⚙️ Supported Instructions
+
+| Opcode | Instruction | Description            |
+| ------ | ----------- | ---------------------- |
+| 00     | ADD         | rd = rs1 + rs2         |
+| 01     | XOR         | rd = rs1 ^ rs2         |
+| 10     | HALT        | Stop program execution |
+
+---
+
+## 🔁 Execution Behavior
+
+The CPU executes one instruction per clock cycle:
+
+1. Fetch instruction (PC)
+2. Decode opcode (Control Unit)
+3. Execute operation (Datapath / ALU)
+4. Write result (if `we = 1`)
+5. Update PC (unless halted)
+
+---
+
+## ⚠️ Key Insight: HALT Does NOT Stop Computation
+
+### ❗Observed Phenomenon
+
+During simulation, when executing a HALT instruction:
+
+* `waddr = 00`
+* `wdata = 0110` (unexpected)
+* Register value remains unchanged
+
+This may appear incorrect at first glance.
+
+---
+
+## 🧠 Root Cause
+
+The HALT instruction **only disables register write-back and PC update**, but:
+
+> ❗**It does NOT stop the datapath or ALU computation**
+
+---
+
+### 🔍 What Actually Happens
+
+Given HALT instruction:
+
+```text
+opcode = 10
+rs1 = 00 → R0
+rs2 = 00 → R0
+rd  = 00 → R0
+```
+
+Even during HALT:
+
+1. **Datapath still reads operands**
+
+   ```text
+   data1 = R0 = 3
+   data2 = R0 = 3
+   ```
+
+2. **ALU continues computing (default op = ADD)**
+
+   ```text
+   result = 3 + 3 = 6 → wdata = 0110
+   ```
+
+3. **Control Unit disables write-back**
+
+   ```text
+   we = 0
+   ```
+
+4. **Register file is NOT updated**
+
+   ```text
+   R0 remains 3
+   ```
+
+---
+
+## 🎯 Key Concept
+
+> 💥 **Computation (ALU) is independent of state update (register write-back)**
+
+---
+
+### ✅ What HALT Actually Does
+
+| Component       | Behavior During HALT |
+| --------------- | -------------------- |
+| PC              | Stops incrementing   |
+| Register Write  | Disabled (`we = 0`)  |
+| ALU             | Still computes       |
+| Signals (wdata) | May change           |
+
+---
+
+## 🔥 Important Takeaway
+
+> ❗Seeing unexpected `wdata` during HALT is **normal and correct behavior**
+
+It represents:
+
+* A **valid ALU computation**
+* That is simply **not committed to state**
+
+---
+
+## 🧠 Deeper Understanding
+
+This reflects a fundamental hardware principle:
+
+```text
+Datapath (combinational logic) → always active
+State update (sequential logic) → controlled by signals
+```
+
+---
+
+## 📈 Future Improvements
+
+* Add **NOP instruction** (no write, but PC continues)
+* Add **JUMP instruction** (control flow)
+* Introduce **valid/enable gating** for datapath
+* Implement **pipeline stages (advanced)**
+
+---
+
+## 🏁 Conclusion
+
+This project demonstrates a crucial step in CPU design:
+
+> From executing operations → to controlling execution
+
+By introducing HALT, the design highlights the separation between:
+
+* **Data computation**
+* **State commitment**
+
+Understanding this distinction is essential for advanced topics such as pipelining, hazards, and out-of-order execution.
+
+---
