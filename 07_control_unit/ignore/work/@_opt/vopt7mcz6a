@@ -1,0 +1,120 @@
+m255
+K3
+13
+cModel Technology
+dD:\modeltech64_10.1c\examples
+T_opt
+VkJJA8X1UU>ci>oYN=izFn3
+04 2 4 work tb fast 0
+=1-50ebf6e5e161-69cb6ac0-2b0-a604
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.1c;51
+valu_4bit
+IEjT5KYe7K0gQh7Fi6naLT2
+VBVEKR=gEZUj1mRjdR;>4k0
+Z0 dD:\verilog_project\07_control_unit
+w1774937239
+8D:\verilog_project\07_control_unit\alu.v
+FD:\verilog_project\07_control_unit\alu.v
+L0 1
+Z1 OL;L;10.1c;51
+r1
+31
+Z2 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 lGf0nkf5W`IYeoH5PC7TM2
+!s108 1774938757.632000
+!s107 D:\verilog_project\07_control_unit\alu.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\07_control_unit\alu.v|
+!i10b 1
+!s85 0
+vcontrol
+IZ7<3?7;>nXJjCoLD^H1Rh3
+VTUk]e>UA>[WSeO1Z_Oz^j0
+Z3 dD:\verilog_project\07_control_unit
+w1774937884
+8D:\verilog_project\07_control_unit\control.v
+FD:\verilog_project\07_control_unit\control.v
+L0 1
+R1
+r1
+31
+R2
+!s100 a1W9KI?^_8LolYW2oj<hR0
+!s108 1774938757.712000
+!s107 D:\verilog_project\07_control_unit\control.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\07_control_unit\control.v|
+!i10b 1
+!s85 0
+vcpu_top
+IgK9Ba`f?Ic@O]8YgdENj;3
+ViP2;]J<7WdR=M>OJKCT>;1
+R3
+w1774938579
+8D:\verilog_project\07_control_unit\cpu_top.v
+FD:\verilog_project\07_control_unit\cpu_top.v
+L0 1
+R1
+r1
+31
+R2
+!s100 PGGCb;Wlc4fidJF0iCRa<2
+!s108 1774938757.750000
+!s107 D:\verilog_project\07_control_unit\cpu_top.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\07_control_unit\cpu_top.v|
+!i10b 1
+!s85 0
+vdatapath
+IGTUA@PoL5N_APhJNc=<`S3
+VkBoi?4JAkofXAi:aQ`Ta61
+R3
+w1774937787
+8D:\verilog_project\07_control_unit\datapath.v
+FD:\verilog_project\07_control_unit\datapath.v
+L0 1
+R1
+r1
+31
+R2
+!s100 2KLBH3PlhOWkjc<lB7lUi0
+!s108 1774938757.672000
+!s107 D:\verilog_project\07_control_unit\datapath.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\07_control_unit\datapath.v|
+!i10b 1
+!s85 0
+vregfile_4x4
+I:<YL63D47i;enkNOGOQe41
+V2ca8<0`jFo`CVAKR8N_Ql1
+R3
+w1774937306
+8D:\verilog_project\07_control_unit\regfile.v
+FD:\verilog_project\07_control_unit\regfile.v
+L0 1
+R1
+r1
+31
+R2
+!s100 <0_BQnXHZ607hcE=K9QCN2
+!s108 1774938757.556000
+!s107 D:\verilog_project\07_control_unit\regfile.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\07_control_unit\regfile.v|
+!i10b 1
+!s85 0
+vtb
+I@JPL;J_do^VbFaK;e2Sm>0
+VV@Xn<HnSRM[I5c1?BH]3a3
+R3
+w1774938719
+8D:\verilog_project\07_control_unit\tb.v
+FD:\verilog_project\07_control_unit\tb.v
+L0 1
+R1
+r1
+31
+R2
+!i10b 1
+!s100 oQ2]4kil;SEPoZ:8cH0za0
+!s85 0
+!s108 1774938757.788000
+!s107 D:\verilog_project\07_control_unit\tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\07_control_unit\tb.v|
