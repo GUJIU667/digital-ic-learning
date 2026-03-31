@@ -1,0 +1,57 @@
+D:/verilog_project/09_minicpu_halt/tb.v {1 {vlog -work work -vopt {D:\verilog_project\09_minicpu_halt\tb.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module tb
+
+Top level modules:
+	tb
+
+} {} {}} D:/verilog_project/09_minicpu_halt/regfile.v {1 {vlog -work work -vopt {D:\verilog_project\09_minicpu_halt\regfile.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module regfile_4x4
+
+Top level modules:
+	regfile_4x4
+
+} {} {}} D:/verilog_project/09_minicpu_halt/instruction_memory.v {1 {vlog -work work -vopt {D:\verilog_project\09_minicpu_halt\instruction_memory.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module imem
+
+Top level modules:
+	imem
+
+} {} {}} D:/verilog_project/09_minicpu_halt/alu.v {1 {vlog -work work -vopt {D:\verilog_project\09_minicpu_halt\alu.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module alu_4bit
+
+Top level modules:
+	alu_4bit
+
+} {} {}} D:/verilog_project/09_minicpu_halt/program_counter.v {1 {vlog -work work -vopt {D:\verilog_project\09_minicpu_halt\program_counter.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module pc
+
+Top level modules:
+	pc
+
+} {} {}} D:/verilog_project/09_minicpu_halt/datapath.v {1 {vlog -work work -vopt {D:\verilog_project\09_minicpu_halt\datapath.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module datapath
+
+Top level modules:
+	datapath
+
+} {} {}} D:/verilog_project/09_minicpu_halt/cpu.v {1 {vlog -work work -vopt {D:\verilog_project\09_minicpu_halt\cpu.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module cpu_debug
+
+Top level modules:
+	cpu_debug
+
+} {} {}} D:/verilog_project/09_minicpu_halt/control.v {1 {vlog -work work -vopt {D:\verilog_project\09_minicpu_halt\control.v}
+Model Technology ModelSim SE-64 vlog 10.1c Compiler 2012.07 Jul 27 2012
+-- Compiling module control
+
+Top level modules:
+	control
+
+} {} {}}
