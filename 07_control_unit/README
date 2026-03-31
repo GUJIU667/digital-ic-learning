@@ -1,0 +1,152 @@
+# 🧠 4-bit Mini CPU (Datapath + Control)
+
+## 📌 Project Overview
+
+This project implements a simplified 4-bit CPU prototype, including both **datapath** and **control unit**. 
+It demonstrates how instructions are decoded and executed through coordinated data flow between a register file and an ALU.
+
+The design supports basic arithmetic and logic operations and is fully verified using simulation and waveform analysis.
+
+---
+
+## 🏗️ Architecture
+
+The system follows a classic single-cycle CPU structure:
+
+```
+Instruction → Control Unit → Datapath → Register Write-back
+```
+
+### 🔧 Components
+
+#### 1. Register File (`regfile_4x4`)
+
+* 4 registers × 4 bits
+* Dual read ports (rs1, rs2)
+* Single write port (rd)
+* Synchronous write (posedge clk)
+* Asynchronous read
+
+#### 2. ALU (`alu_4bit`)
+
+* Performs arithmetic and logic operations
+* Controlled by 3-bit `op` signal
+
+#### 3. Datapath (`datapath`)
+
+* Connects register file and ALU
+* Handles operand fetch and result write-back
+
+#### 4. Control Unit (`control`)
+
+* Decodes instruction opcode
+* Generates control signals:
+
+  * `we` (write enable)
+  * `op` (ALU operation)
+
+#### 5. Top Module (`cpu_top`)
+
+* Splits instruction fields
+* Connects control unit and datapath
+
+---
+
+## 🧾 Instruction Format
+
+8-bit instruction encoding:
+
+```
+[7:6] opcode
+[5:4] rs1
+[3:2] rs2
+[1:0] rd
+```
+
+---
+
+## ⚙️ Supported Instructions
+
+| Opcode | Instruction | Description    |
+| ------ | ----------- | -------------- |
+| 00     | ADD         | rd = rs1 + rs2 |
+| 01     | XOR         | rd = rs1 ^ rs2 |
+
+---
+
+## 🔁 Execution Flow
+
+1. Instruction is input to the system
+2. Control unit decodes opcode → generates control signals
+3. Register file outputs operands (`rs1`, `rs2`)
+4. ALU performs operation
+5. Result is written back to `rd` when `we = 1`
+
+---
+
+## 🧪 Simulation & Verification
+
+A testbench is provided to validate functionality.
+
+### ✅ Test Cases
+
+* ADD operation: `R2 = R0 + R1`
+* XOR operation: `R3 = R2 ^ R1`
+
+### 🔍 Observed Signals
+
+* `instr` → current instruction
+* `we`, `op` → control signals
+* `data1`, `data2` → ALU inputs
+* `alu_result` → ALU output
+* `regfile[x]` → register values
+
+---
+
+## ⏱️ Timing Behavior
+
+* Register writes occur on **posedge clk**
+* Control signals must be stable before the clock edge
+* Simulation uses delay (`#10`) to model clock cycles
+
+---
+
+## 🔧 Debugging Notes
+
+* Internal register values can be inspected via:
+
+  ```
+  uut.dp.rf.regfile
+  ```
+* Waveform analysis is essential for verifying correct data flow
+* Ensure correct timing between signal changes and clock edges
+
+---
+
+## 🚀 Key Learnings
+
+* Difference between combinational and sequential logic
+* Role of control unit in CPU design
+* How instructions drive hardware behavior
+* Importance of timing and clock synchronization
+* Waveform-based debugging techniques
+
+---
+
+## 📈 Future Improvements
+
+* Add immediate (IMM) support
+* Expand ALU operations (SUB, AND, OR, etc.)
+* Implement instruction memory
+* Support multi-cycle or pipelined execution
+* Add program counter (PC)
+
+---
+
+## 🏁 Conclusion
+
+This project demonstrates the fundamental structure of a CPU by integrating datapath and 
+control logic into a working system. It serves as a strong foundation for further exploration into digital IC design and 
+processor architecture.
+
+---
