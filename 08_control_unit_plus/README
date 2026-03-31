@@ -1,0 +1,168 @@
+# 🧠 4-bit Mini CPU with Program Execution
+
+## 📌 Project Overview
+
+This project implements a simplified 4-bit CPU capable of **automatic instruction execution**.
+Building upon a basic datapath (register file + ALU), the design introduces a **control unit**, **program counter (PC)**, and **instruction memory**, forming a complete single-cycle CPU prototype.
+
+The CPU fetches, decodes, and executes instructions sequentially without manual intervention.
+
+---
+
+## 🏗️ Architecture
+
+The system follows a simplified CPU execution flow:
+
+```
+PC → Instruction Memory → Control Unit → Datapath → Register Write-back
+```
+
+### 🔧 Components
+
+#### 1. Program Counter (`pc`)
+
+* 2-bit counter (supports 4 instructions)
+* Increments every clock cycle
+* Automatically loops (wrap-around)
+
+---
+
+#### 2. Instruction Memory (`imem`)
+
+* Stores 8-bit instructions
+* Indexed by PC
+* Provides instruction to CPU each cycle
+
+---
+
+#### 3. Control Unit (`control`)
+
+* Decodes instruction opcode
+* Generates control signals:
+
+  * `we` (write enable)
+  * `op` (ALU operation)
+
+---
+
+#### 4. Datapath (`datapath`)
+
+* Includes:
+
+  * Register File (4×4-bit, dual read, single write)
+  * ALU (4-bit operations)
+* Executes operations and writes results back
+
+---
+
+## 🧾 Instruction Format
+
+Each instruction is 8 bits:
+
+```
+[7:6] opcode
+[5:4] rs1
+[3:2] rs2
+[1:0] rd
+```
+
+---
+
+## ⚙️ Supported Instructions
+
+| Opcode | Instruction | Description    |
+| ------ | ----------- | -------------- |
+| 00     | ADD         | rd = rs1 + rs2 |
+| 01     | XOR         | rd = rs1 ^ rs2 |
+
+---
+
+## 🔁 Program Execution
+
+Example instruction sequence:
+
+```
+0: R2 = R0 + R1
+1: R3 = R2 ^ R1
+2: R0 = R2 + R3
+3: R1 = R0 ^ R1
+```
+
+### Initial Register State:
+
+```
+R0 = 3
+R1 = 2
+R2 = 0
+R3 = 0
+```
+
+### Execution Trace:
+
+| Cycle | PC | Operation               | Result  |
+| ----- | -- | ----------------------- | ------- |
+| 1     | 0  | R2 = R0 + R1            | R2 = 5  |
+| 2     | 1  | R3 = R2 ^ R1            | R3 = 7  |
+| 3     | 2  | R0 = R2 + R3            | R0 = 12 |
+| 4     | 3  | R1 = R0 ^ R1            | R1 = 14 |
+| 5     | 0  | R2 = R0 + R1 (overflow) | R2 = 10 |
+
+---
+
+## ⏱️ Timing Behavior
+
+* Instruction execution occurs **once per clock cycle**
+* Register writes occur on **posedge clk**
+* ALU operates as combinational logic
+* PC increments every clock cycle
+
+---
+
+## 🔍 Simulation & Debugging
+
+### Recommended Waveform Signals:
+
+```
+pc
+instr
+we
+op
+data1 / data2
+alu_result
+regfile[x]
+```
+
+### Key Observations:
+
+* PC cycles through instructions automatically
+* ALU computes results every cycle
+* Register values update on clock edges
+* Overflow occurs due to fixed 4-bit width
+
+---
+
+## 🧠 Key Concepts Learned
+
+* Difference between combinational and sequential logic
+* CPU execution cycle: Fetch → Decode → Execute
+* Role of control signals in hardware systems
+* Timing and clock-driven behavior
+* Waveform-based debugging and verification
+
+---
+
+## 📈 Future Improvements
+
+* Add immediate (IMM) support
+* Implement HALT instruction
+* Add jump/branch instructions
+* Expand instruction memory
+* Introduce pipelining (advanced)
+
+---
+
+## 🏁 Conclusion
+
+This project demonstrates a complete minimal CPU system capable of executing a program automatically. It bridges the gap between basic digital modules and system-level design, providing a strong foundation for further exploration into processor architecture and digital IC design.
+
+---
