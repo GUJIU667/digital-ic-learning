@@ -1,0 +1,259 @@
+# 🚀 4-bit Mini CPU with Control Flow (HALT + JUMP)
+
+## 📌 Project Overview
+
+This project implements a simplified 4-bit CPU that supports **basic control flow**, including:
+
+* Arithmetic & logic operations (ADD, XOR)
+* Automatic instruction execution (Program Counter + Instruction Memory)
+* **HALT (program stop)**
+* **JUMP (control flow / looping)**
+
+With these features, the CPU evolves from a simple datapath into a **programmable execution system capable of running loops**.
+
+---
+
+## 🏗️ Architecture
+
+```text
+PC → Instruction Memory → Control Unit → Datapath → Register File
+             ↑
+         (JUMP / HALT control)
+```
+
+### 🔧 Components
+
+#### 1. Program Counter (`pc`)
+
+* 2-bit counter
+* Supports:
+
+  * Sequential execution (`pc + 1`)
+  * HALT (freeze)
+  * JUMP (redirect)
+
+---
+
+#### 2. Instruction Memory (`imem`)
+
+* Stores 8-bit instructions
+* Addressed by PC
+
+---
+
+#### 3. Control Unit (`control`)
+
+* Decodes opcode
+* Generates:
+
+  * `we` (write enable)
+  * `op` (ALU operation)
+  * `halt`
+  * `jump`
+
+---
+
+#### 4. Datapath (`datapath`)
+
+* Register File (4×4-bit)
+* ALU (4-bit)
+* Handles all data computation
+
+---
+
+## 🧾 Instruction Format
+
+```text
+[7:6] opcode
+[5:4] rs1
+[3:2] rs2
+[1:0] rd / jump target
+```
+
+---
+
+## ⚙️ Supported Instructions
+
+| Opcode | Instruction | Description    |
+| ------ | ----------- | -------------- |
+| 00     | ADD         | rd = rs1 + rs2 |
+| 01     | XOR         | rd = rs1 ^ rs2 |
+| 10     | HALT        | Stop execution |
+| 11     | JUMP        | PC = target    |
+
+---
+
+## 🔁 Example Program (Loop)
+
+```text
+0: R2 = R0 + R1
+1: R3 = R2 ^ R1
+2: JUMP to 0
+3: HALT (never reached)
+```
+
+### Initial State
+
+```text
+R0 = 3
+R1 = 2
+```
+
+---
+
+## ⏱️ Execution Behavior
+
+### PC Sequence
+
+```text
+0 → 1 → 2 → 0 → 1 → 2 → ...
+```
+
+### Effect
+
+* Instructions at 0 and 1 execute repeatedly
+* JUMP creates a **loop**
+* CPU runs continuously without external input
+
+---
+
+## 🔥 Key Insight 1: JUMP Enables Control Flow
+
+Before JUMP:
+
+```text
+CPU = linear execution (fixed sequence)
+```
+
+After JUMP:
+
+```text
+CPU = programmable execution (loops, flow control)
+```
+
+> 💥 JUMP transforms the CPU from a calculator into a programmable machine
+
+---
+
+## ⚠️ Key Insight 2: HALT Does NOT Stop Computation
+
+### Observed Phenomenon
+
+During HALT:
+
+* `wdata` still changes (e.g., becomes `0110`)
+* Registers do NOT update
+
+---
+
+### Explanation
+
+HALT only affects:
+
+* PC update (stops)
+* Register write (`we = 0`)
+
+But:
+
+> ❗**Datapath and ALU continue operating**
+
+---
+
+### Example
+
+HALT instruction:
+
+```text
+10_00_00_00
+```
+
+Interpreted by datapath as:
+
+```text
+R0 + R0 = 3 + 3 = 6
+```
+
+So:
+
+```text
+wdata = 0110
+```
+
+But:
+
+```text
+we = 0 → R0 is NOT updated
+```
+
+---
+
+## 🎯 Core Principle
+
+> 💥 **Computation ≠ State Update**
+
+| Stage    | Behavior During HALT |
+| -------- | -------------------- |
+| ALU      | Still computes       |
+| Signals  | Still change         |
+| Register | NOT updated          |
+| PC       | Stops                |
+
+---
+
+## 🧠 Deeper Understanding
+
+This reflects a fundamental hardware model:
+
+```text
+Combinational Logic → always active
+Sequential Logic    → controlled by clock & enable
+```
+
+---
+
+## 🧪 Simulation & Verification
+
+### Key Waveforms
+
+```text
+pc
+instr
+jump / halt
+we
+alu_result
+regfile
+```
+
+### What to Verify
+
+* PC jumps correctly on JUMP
+* PC freezes on HALT
+* Register updates only when `we = 1`
+* `wdata` may change even during HALT (expected)
+
+---
+
+## 📈 Future Work
+
+* Conditional branch (e.g., BEQ)
+* Immediate (IMM) instructions
+* Program counter width expansion
+* Pipeline architecture (advanced)
+
+---
+
+## 🏁 Conclusion
+
+This project demonstrates a critical milestone in CPU design:
+
+> From executing instructions → to controlling execution flow
+
+By implementing HALT and JUMP, the CPU now supports:
+
+* Program termination
+* Looping behavior
+* Basic control flow
+
+This lays the foundation for building more advanced processor features such as branching, pipelining, and full instruction sets.
+
+---
