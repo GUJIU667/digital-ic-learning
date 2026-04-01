@@ -1,0 +1,156 @@
+m255
+K3
+13
+cModel Technology
+dD:\modeltech64_10.1c\examples
+T_opt
+VFX<dBFC_8_R=ZhFfYj1k53
+04 2 4 work tb fast 0
+=1-50ebf6e5e161-69cd03d3-314-d54
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.1c;51
+valu_4bit
+!s100 dXdg5ijTEzbon1>MTVaXL1
+InB08bT:6PVdlUlGM6e`7I1
+VBVEKR=gEZUj1mRjdR;>4k0
+Z0 dD:\verilog_project\10_minicpu_jump
+w1774943252
+8D:/verilog_project/10_minicpu_jump/alu.v
+FD:/verilog_project/10_minicpu_jump/alu.v
+L0 1
+Z1 OL;L;10.1c;51
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:/verilog_project/10_minicpu_jump/alu.v|
+Z2 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s108 1775043535.231000
+!s107 D:/verilog_project/10_minicpu_jump/alu.v|
+!i10b 1
+!s85 0
+vcontrol
+!s100 n<>05fHVfEV91Xae<4E5Z1
+I`gEGFS<Q2MLEgEf@GgL;o3
+V2DV?TFc0UM9Ze6M^oPbBe0
+Z3 dD:\verilog_project\10_minicpu_jump
+w1775043159
+8D:\verilog_project\10_minicpu_jump\control.v
+FD:\verilog_project\10_minicpu_jump\control.v
+L0 1
+R1
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\10_minicpu_jump\control.v|
+R2
+!s108 1775043535.267000
+!s107 D:\verilog_project\10_minicpu_jump\control.v|
+!i10b 1
+!s85 0
+vcpu
+!s100 ChXhBT^7Zaa2CWJWgPI4G1
+I[6AU5=C3R7<E>hAz4B@6F0
+VdMGOioInc<bWk5>E=bA;T2
+R3
+w1775043409
+8D:\verilog_project\10_minicpu_jump\cpu.v
+FD:\verilog_project\10_minicpu_jump\cpu.v
+L0 1
+R1
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\10_minicpu_jump\cpu.v|
+R2
+!s108 1775043535.302000
+!s107 D:\verilog_project\10_minicpu_jump\cpu.v|
+!i10b 1
+!s85 0
+vdatapath
+!s100 @W;2Z5_LHIG@=8c3?_nRn2
+IJLHRU3?0<V8_`j7EnF[HV3
+VkBoi?4JAkofXAi:aQ`Ta61
+R3
+w1774943364
+8D:/verilog_project/10_minicpu_jump/datapath.v
+FD:/verilog_project/10_minicpu_jump/datapath.v
+L0 1
+R1
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:/verilog_project/10_minicpu_jump/datapath.v|
+R2
+!s108 1775043535.337000
+!s107 D:/verilog_project/10_minicpu_jump/datapath.v|
+!i10b 1
+!s85 0
+vimem
+!s100 1b7jbLQf78iUAzfKD_mJ>0
+I3QPe>DYcg4e@Y6X6LckPQ1
+VWPU1j=TQ0Lb?:eMT0APXY1
+R3
+w1775043291
+8D:\verilog_project\10_minicpu_jump\instruction_memory.v
+FD:\verilog_project\10_minicpu_jump\instruction_memory.v
+L0 1
+R1
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\10_minicpu_jump\instruction_memory.v|
+R2
+!s108 1775043535.372000
+!s107 D:\verilog_project\10_minicpu_jump\instruction_memory.v|
+!i10b 1
+!s85 0
+vpc
+!s100 1?P43h@Y=K;Q3O<EYGj0G0
+I2j7CJ;L0K^6UGEhG99>mQ0
+VT0@k<@3?2IYJUWY43nIGW1
+R3
+w1775043186
+8D:\verilog_project\10_minicpu_jump\program_counter.v
+FD:\verilog_project\10_minicpu_jump\program_counter.v
+L0 1
+R1
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\10_minicpu_jump\program_counter.v|
+R2
+!s108 1775043535.409000
+!s107 D:\verilog_project\10_minicpu_jump\program_counter.v|
+!i10b 1
+!s85 0
+vregfile_4x4
+!s100 A0f:[Vi@G_SEN174_Lo2n3
+I;BWV@lVROIAeH_a8U4gBY1
+V2ca8<0`jFo`CVAKR8N_Ql1
+R3
+w1774943339
+8D:/verilog_project/10_minicpu_jump/regfile.v
+FD:/verilog_project/10_minicpu_jump/regfile.v
+L0 1
+R1
+r1
+31
+!s90 -reportprogress|300|-work|work|-vopt|D:/verilog_project/10_minicpu_jump/regfile.v|
+R2
+!s108 1775043535.445000
+!s107 D:/verilog_project/10_minicpu_jump/regfile.v|
+!i10b 1
+!s85 0
+vtb
+IiJC]bi=0QohPk=>a?eNi[2
+VV@Xn<HnSRM[I5c1?BH]3a3
+R3
+w1775043527
+8D:\verilog_project\10_minicpu_jump\tb.v
+FD:\verilog_project\10_minicpu_jump\tb.v
+L0 1
+R1
+r1
+31
+R2
+!i10b 1
+!s100 @CR^EnkzI7]P32O?nNDjF1
+!s85 0
+!s108 1775043535.482000
+!s107 D:\verilog_project\10_minicpu_jump\tb.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:\verilog_project\10_minicpu_jump\tb.v|
