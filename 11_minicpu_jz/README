@@ -1,0 +1,191 @@
+# 🚀 4-bit Mini CPU with Control Flow (HALT / JUMP / JZ)
+
+## 📌 Project Overview
+
+This project implements a simplified **4-bit CPU** in Verilog, featuring a complete execution flow from instruction fetch to control flow decisions.
+
+Compared to a basic datapath design, this CPU supports:
+
+* Arithmetic & logic operations (ADD, XOR)
+* Program Counter (PC) + Instruction Memory (IMEM)
+* **Control flow instructions**:
+
+  * HALT (program termination)
+  * JUMP (unconditional branch)
+  * **JZ (conditional branch based on Zero Flag)**
+
+💡 With the introduction of conditional branching, the CPU evolves into a **programmable execution system capable of decision-making and loop control**.
+
+---
+
+## 🧠 Architecture Overview
+
+### 🔧 Core Components
+
+| Module        | Function                                         |
+| ------------- | ------------------------------------------------ |
+| `pc`          | Program Counter with jump & halt control         |
+| `imem`        | Instruction Memory (4 instructions)              |
+| `control`     | Instruction decoding & control signal generation |
+| `datapath`    | Register file + ALU execution                    |
+| `alu_4bit`    | 4-bit ALU (ADD, XOR)                             |
+| `regfile_4x4` | 4×4 register file                                |
+
+---
+
+### 🔁 Execution Flow
+
+```
+PC → IMEM → Decode → Control → Datapath → ALU → Flags → PC update
+```
+
+---
+
+## ⚙️ Instruction Set
+
+### 📌 Instruction Format (8-bit)
+
+```
+[7:6] opcode
+[5]   JZ flag (valid when opcode = 11)
+[4:2] unused
+[1:0] jump address
+```
+
+---
+
+### 📋 Supported Instructions
+
+| Instruction | Opcode      | Description                    |
+| ----------- | ----------- | ------------------------------ |
+| ADD         | 00          | Register addition              |
+| XOR         | 01          | Bitwise XOR (used for zeroing) |
+| HALT        | 10          | Stop execution                 |
+| JUMP        | 11 + flag=0 | Unconditional jump             |
+| JZ          | 11 + flag=1 | Jump if Zero Flag = 1          |
+
+---
+
+## 🚀 Key Feature: Conditional Branch (JZ)
+
+### 🧠 Zero Flag Generation
+
+```
+zero_flag = (alu_result == 0)
+```
+
+### 🔀 PC Update Logic
+
+```
+if (halt)
+    PC = PC;
+else if (jump || jz)
+    PC = target_addr;
+else
+    PC = PC + 1;
+```
+
+👉 This enables **if-style control flow**, which is fundamental to real CPUs.
+
+---
+
+## 🧪 Test Program
+
+### 📌 Example: Conditional Jump
+
+```
+0: XOR R0, R0   ; result = 0 → zero_flag = 1
+1: JZ  3        ; should jump to HALT
+2: ADD R0, R0   ; should NOT execute
+3: HALT
+```
+
+---
+
+### ✅ Expected Behavior
+
+| Cycle | PC | Instruction | Note                |
+| ----- | -- | ----------- | ------------------- |
+| 1     | 0  | XOR         | zero_flag = 1       |
+| 2     | 1  | JZ          | condition met       |
+| 3     | 3  | HALT        | jumped successfully |
+| 4+    | 3  | HALT        | execution stops     |
+
+---
+
+## 🔍 Simulation (ModelSim)
+
+### 📌 Steps
+
+```tcl
+vlog *.v
+vsim tb_cpu
+add wave *
+run 100ns
+```
+
+---
+
+### 🎯 Key Signals to Observe
+
+* `pc`
+* `instr`
+* `zero_flag`
+* `jump`
+* `jz`
+* `halt`
+
+---
+
+## 💡 Design Highlights
+
+* ✅ Clean modular design (datapath / control separation)
+* ✅ Minimal instruction encoding with extended functionality
+* ✅ First implementation of **branching logic**
+* ✅ Demonstrates core CPU concepts:
+
+  * Control flow
+  * Flag-based decision making
+  * Program execution lifecycle
+
+---
+
+## 📈 Future Improvements
+
+* [ ] Data Memory (RAM)
+* [ ] LOAD / STORE instructions
+* [ ] Multi-cycle CPU design
+* [ ] Pipeline architecture (2-stage / 5-stage)
+* [ ] More ALU operations (SUB, AND, OR)
+
+---
+
+## 🎯 Takeaways
+
+This project marks the transition from:
+
+```
+Basic datapath → Programmable CPU with control flow
+```
+
+It demonstrates fundamental digital design skills required for:
+
+* Digital IC Design
+* CPU Architecture
+* RTL Design & Verification
+
+---
+
+## 👨‍💻 Author
+
+* Verilog RTL Design Project
+* Focus: Digital IC / CPU Architecture
+* Tool: ModelSim
+
+---
+
+## ⭐ Summary
+
+> This is not just a toy CPU — it is a minimal yet complete execution system with real control flow capability.
+
+---
