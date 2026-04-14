@@ -1,0 +1,145 @@
+# 🧠 Mini CPU (4-bit Single-Cycle Processor)
+
+A minimal 4-bit single-cycle CPU implemented in Verilog, featuring a clean datapath/control separation and basic instruction execution including arithmetic and memory operations.
+
+---
+
+## 🚀 Overview
+
+This project implements a simplified CPU architecture designed for learning and demonstrating fundamental computer architecture concepts:
+
+* Register File (4×4)
+* ALU (4-bit)
+* Instruction Memory (IMEM)
+* Data Memory (DMEM)
+* Control Unit
+* Program Counter (PC)
+* Datapath
+
+The CPU executes instructions in a **single-cycle architecture**, where each instruction completes in one clock cycle.
+
+---
+
+## 🧩 Architecture
+
+The CPU follows a classic structure:
+
+```
+        ┌──────────┐
+        │   IMEM   │
+        └────┬─────┘
+             │ instr
+        ┌────▼─────┐
+        │ CONTROL  │
+        └────┬─────┘
+             │ signals
+        ┌────▼─────┐
+        │ DATAPATH │
+        └────┬─────┘
+             │
+        ┌────▼─────┐
+        │  DMEM    │
+        └──────────┘
+```
+
+---
+
+## 📘 Instruction Format
+
+```
+[7:6] opcode  
+[5:4] rs1  
+[3:2] rs2  
+[1:0] rd
+```
+
+---
+
+## ⚙️ Supported Instructions
+
+| Opcode | Instruction | Description    |
+| ------ | ----------- | -------------- |
+| 00     | ADD         | rd = rs1 + rs2 |
+| 01     | XOR         | rd = rs1 ^ rs2 |
+| 10     | LOAD        | rd = MEM[rs1]  |
+| 11     | STORE       | MEM[rs1] = rs2 |
+
+---
+
+## 🔧 Key Design Decisions
+
+### 1. Single-Cycle Design
+
+All instructions are executed in one clock cycle, simplifying control logic and making behavior easier to verify.
+
+### 2. Register-Based Addressing
+
+Memory addresses are derived from register values (`rs1`), enabling flexible addressing without immediate values.
+
+### 3. Clean Datapath-Control Separation
+
+* Control unit generates signals (`we`, `mem_we`, `mem_to_reg`, `alu_op`)
+* Datapath executes operations based on control signals
+
+### 4. Deterministic Memory Initialization
+
+Data memory is initialized to ensure predictable simulation behavior.
+
+---
+
+## 🧪 Example Program
+
+```
+LOAD r1, [r0]
+LOAD r2, [r0]
+ADD  r3, r1, r2
+STORE r3, [r0]
+```
+
+This program:
+
+1. Loads data from memory
+2. Performs addition
+3. Stores the result back to memory
+
+---
+
+## 📊 Simulation
+
+* Tool: ModelSim
+* Verified functionality:
+
+  * Register write-back
+  * ALU operations
+  * Memory read/write
+  * Control signal correctness
+
+---
+
+## ⚠️ Limitations (By Design)
+
+This version intentionally keeps the architecture minimal:
+
+* ❌ No branch instructions (JUMP / JZ)
+* ❌ No HALT instruction
+* ❌ No immediate values
+
+> These features were explored in earlier iterations but removed in this version to maintain architectural simplicity and clarity.
+
+---
+
+## 🚀 Future Improvements
+
+* Add immediate (IMM) support
+* Implement branch instructions (JUMP / JZ)
+* Introduce pipeline architecture
+* Expand instruction set (SUB, AND, OR)
+* Add hazard handling (for pipelined version)
+
+---
+
+## 🏁 Conclusion
+
+This project demonstrates a complete CPU execution flow from instruction fetch to write-back in a compact and understandable design. It serves as a solid foundation for more advanced CPU architectures.
+
+---
